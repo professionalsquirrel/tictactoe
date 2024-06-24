@@ -29,11 +29,16 @@ public class tictactoe {
 
         placePiece(gameBoard, playerPos, "player");
 
+        String result = checkWinner();
+        if(result.length()>0){
+            System.out.println(result);
+            break;
+        }
+
         Random rand = new Random();
         int cpuPos = rand.nextInt(9)+1;
 
         while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)){
-            System.out.println("Hey CPU: Position taken! Enter a correct position.");
             cpuPos = rand.nextInt(9)+1;
         }
 
@@ -41,8 +46,12 @@ public class tictactoe {
 
         printGameBoard(gameBoard);
 
-        String result = checkWinner();
-        System.out.println(result);
+        result = checkWinner();
+        if(result.length()>0){
+            System.out.println(result);
+            break;
+        }
+        
 }
     }
 
